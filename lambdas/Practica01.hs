@@ -1,4 +1,7 @@
 -- | Práctica 01. Lógica Computacional
+-- | Integrantes:
+-- | Zhang Liu Xin Wen
+-- | Sánchez Correa Diego Sebastián
 module Practica1 where
 
 {- | esPalindromo
@@ -6,28 +9,38 @@ module Practica1 where
 un palíndromo.
 -}
 esPalindromo :: Eq a => [a] -> Bool
-esPalindromo [] = True
+esPalindromo xs = xs == reverse xs
 
 {- | divisores
 'divisores' recibe un número y devuelve una lista
 con los divisores de este.
 -}
-divisores :: Num a => [a] -> [a]
-divisores [] = [1]
+divisores :: Integral a => a -> [a]
+divisores n = [ x | x <- [1..n], n `mod` x == 0]
 
 {- | primos
 'primos' recibe un número y devuelve una lista
 con los números primos acotados superiormente  por este.
 -}
-primos :: Num a => [a] -> [a]
-primos [] = [1]
+primos :: Integral a => a -> [a]
+primos a = [ x | x <- [1..a], length(divisores x) == 2]
 
 {- | sumaPares
 'sumaPares' recibe una lista de pares ordenados
 y devuelve una tupla de la suma de ellas.
 -}
-sumaPares :: (Num a, Num b) => [(a,b)] -> (a,a)
-sumaPares [(a,b)] = (a,a)
+sumaPares :: (Num a, Num b) => [(a,b)] -> (a,b)
+-- sumaPares [] = (0,0)
+-- sumaPares [(a,b)] = (a,b)
+-- sumaPares (x:xs) =  sumaTupla x (sumaPares xs)
+sumaPares [] = (0,0)
+sumaPares [(a,b)] = (a,b)
+sumaPares ((x,y):[(a,b)]) = (x+a,y+b)
+sumaPares (x:xs) = sumaPares (x:[(sumaPares xs)])
+
+-- `sumaTupla`. Función auxiliar que define la suma de dos tuplas.
+sumaTupla :: (Num a, Num b) => (a, b) -> (a, b) -> (a, b)
+sumaTupla (x,y) (a,b) = (x+a, y+b)
 
 {- | Producto Cartesiano
 'productoCartesiano' regresa el producto cartesiano de dos listas.
@@ -46,15 +59,18 @@ aplica f (x:xs) = f x : aplica f xs
 
 {- | Modulo
 'modulo' recibe dos números a y b y devuelve a `mod` b.
+(Para operar con números negativos, pasar entre paréntesis).
 -}
 modulo :: Integral a => a -> a -> a
-modulo a b = a
+modulo a b = a - ((div a b) * b)
 
 {- | Cadena Par
-'cadenaPar' recibe una cádena y dice si su longitud es par.
+'cadenaPar' recibe una cadena y dice si su longitud es par.
 -}
 cadenaPar :: [Char] -> Bool
 cadenaPar [] = True
+cadenaPar [x] = False
+cadenaPar (x:xs) = False == (cadenaPar(xs))
 
 {- | Elimina Repetidos
 'eliminaRepetidos' recibe una lista y devuelve una lista
@@ -62,6 +78,20 @@ sin repetidos.
 -}
 eliminaRepetidos :: Eq a => [a] -> [a]
 eliminaRepetidos [] = []
+eliminaRepetidos (x:xs) = [x] ++ [n | n <- eliminaRepetidos (xs), n /= x]
+
+-- eliminaRepetidos [] = []
+-- eliminaRepetidos (x:xs) = x : filtra (/= x) (eliminaRepetidos xs)
+
+{- | filtra
+'filtra' devuelve los elementos de una lista que
+cumplen una propiedad dada.
+-}
+filtra :: (a->Bool) -> [a] -> [a]
+filtra _ [] = []
+filtra f (x:xs)
+  | f x = x : filtra f xs
+  | otherwise = filtra f xs
 
 {- | Ackermann.
      'ackermann' define la función de Ackermann.
@@ -71,6 +101,6 @@ eliminaRepetidos [] = []
 -}
 ackermann :: Int -> Integer -> Integer
 ackermann 0 0 = 1
-ackermann 0 n = n+1 
+ackermann 0 n = n+1
 ackermann m 0 = ackermann (m-1) 1
 ackermann m n = ackermann (m-1) (ackermann m (n-1))
