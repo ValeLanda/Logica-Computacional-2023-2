@@ -1,3 +1,13 @@
+-- 1. esPalindromo, recibe una lista y devuelve un booleano,
+--True si es palindrono, False si no.
+esPalindromo :: Eq a => [a] -> Bool
+esPalindromo xs = xs == reverse xs
+
+-- 2. divisores, recibe un parametro natural n y devuelve una lista con todos los divisores de n
+divisores :: Integer -> [Integer]
+divisores n
+  | n <= 0 = error "El numero no es natural."
+  | otherwise = [x | x <- [1..n], n `mod`  x == 0]
 -- 3. primos, recibe como parámetro un natural n y devuelve una lista con todos
 -- los números primos entre 1 y n.
 
