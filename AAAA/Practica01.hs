@@ -41,6 +41,13 @@ aplica :: (a->b) -> [a] -> [b]
 aplica _ [] = []
 aplica func (x:xs) = func x : aplica func xs
 
+-- 7. modulo, sin usar la función módulo predefinida en Haskell.
+
+modulo :: Integer -> Integer -> Integer
+modulo x 0 = error "Divisón entre cero"
+modulo x y = x - (y*(x `div` y))
+
+
 -- 8. cadenaPar, recibe como parámetro una cadena y devuelve True si la
 -- longitud de la cadena es par y False en el caso contrario.
 cadenaPar :: String -> Bool
