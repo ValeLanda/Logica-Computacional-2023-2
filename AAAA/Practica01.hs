@@ -25,6 +25,17 @@ sumaPares xs = let primeros = map fst xs
 productoCartesiano :: [a] -> [b] -> [(a, b)]
 productoCartesiano xs ys = [(x,y) | x <- xs, y <- ys]
 
+-- 6. aplica, recibe como parámetros una función y una lista, y devuelve
+-- una lista con el resultado de evaluar cada elemento.
+aplica :: (a->b) -> [a] -> [b]
+aplica _ [] = []
+aplica func (x:xs) = func x : aplica func xs
+
+-- 8. cadenaPar, recibe como parámetro una cadena y devuelve True si la
+-- longitud de la cadena es par y False en el caso contrario.
+cadenaPar :: String -> Bool
+cadenaPar xs = mod (length xs) 2 == 0
+
 -- 9. eliminaRepetidos, recibe como parámetro una lista y devuelve la
 -- lista sin repetidos.
 eliminaRepetidos :: Eq a => [a] -> [a]
