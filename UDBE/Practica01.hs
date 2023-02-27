@@ -12,7 +12,7 @@ divisores a = [b | b <- [1..a], a `mod` b == 0]
 primos:: Integer -> [Integer]
 primos n
     | n <= 0 = []
-    | otherwise = [x| x<- [2..n], esPrimo x]
+    | otherwise = [x| x <- [2..n], esPrimo x]
 
 --Ejercicio 4 SumaPares
 sumaPares:: (Num a) => (a,a) -> (a,a)-> (a,a)
