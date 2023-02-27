@@ -23,6 +23,11 @@ productoC :: [[a]] -> [[a]]
 productoC [] = [[]]
 productoC (xs:xss) = [x:ys | x <- xs, ys <- productoC xss]
 
+--Ejercicio 7 Modulo
+modulo :: Int -> Int -> Int
+modulo x 0 = error "Argumenos invalidos"
+modulo x y = x - (y * (div x y))
+
 --ejercicio 8 CadenaPar
 --nos dice si la longitud de una cadena es par
 cadenaPar :: [Int] -> Bool
