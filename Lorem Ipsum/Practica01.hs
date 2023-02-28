@@ -14,6 +14,13 @@ module Practica01 where
     -- Se checarán todos los números entre 1 y n y en los casos en los que la lista sea sólo el 1 y n mismo 
     -- tendremos que ese número es primo
     --primos n = [n]
+    
+    -- producto cartesiano de 2 listas
+    -- Utiliza una lista por comprensión.
+    productoCartesiano :: [a] -> [b] -> [(a, b)]
+    -- Para cada elemento x en xs y cada elemento y en ys, se crea un par ordenado (x,y) y se agrega a la lista resultante.
+    productoCartesiano xs ys = [(x, y) | x <- xs, y <- ys]
+
 
     -- Esta función recibira una función y una lista y regresará una lista donde la función ha sido aplicada a
     -- todos los elementos de la lista
@@ -29,6 +36,12 @@ module Practica01 where
     cadenaPar :: String -> Bool
     --Sacamos el módulo 2 de la longitud de la cadena para ver si es par, si lo es regresa True, si no regresa False
     cadenaPar s = length s `mod` 2 == 0
+    
+    -- funcion elimina repetidos soporte cualquier tipo de dato  ya que usamos Eq para hacer equivalencia especial de haskell
+    eliminaRepetidos :: Eq a => [a] -> [a]
+    eliminaRepetidos [] = []
+    -- Usamos filter para eliminar todos los elementos que son iguales a x de la lista restante, y llamamos recursivamente a eliminaRepetidos sobre esa lista para --continuar eliminando elementos repetidos
+    eliminaRepetidos (x : xs) = x : eliminaRepetidos (filter (/= x) xs)
 
     --Esta función recibe dos naturales y regresa un natural
     ackermann :: Natural -> Natural -> Natural
