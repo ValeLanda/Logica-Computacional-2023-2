@@ -41,6 +41,19 @@ cadenaPar :: [Int] -> Bool
 cadenaPar xs = (length xs) `mod` 2 == 0
 
 
+--Ejercicio 9 Eliminar repetidos
+-- Esta funcion nos ayuda a eliminar los elementos que se encunetren duplicados, en este caso en una lista de enteros.
+elimdup :: [Int] -> [Int]
+elimdup [] = []
+elimdup (x:xs) = x: (elimdup (elim x xs))
+ where
+  elim :: Int -> [Int] -> [Int]
+  elim x [] = []
+  elim x (y:ys)
+   | x==y = elim x ys
+   |otherwise = y:(elim x ys)
+
+
 
 --Funciones auxiliares
 --Nos dice si un numero es primo o no
