@@ -23,7 +23,9 @@ productoC :: [[a]] -> [[a]]
 productoC [] = [[]]
 productoC (xs:xss) = [x:ys | x <- xs, ys <- productoC xss]
 
---Ejercicio 6 Aplica
+-- Ejercicio 6 Aplica
+-- Esta implementación utiliza listas por comprensión. Recibe una lista y una función, esta última 
+-- puede ser de haskell o una propia. 
 aplica :: (a -> b) -> [a] -> [b]
 aplica funcion xs = [funcion x | x <- xs]
 
@@ -37,9 +39,6 @@ modulo x y = x - (y * (div x y))
 --nos dice si la longitud de una cadena es par
 cadenaPar :: [Int] -> Bool
 cadenaPar xs = (length xs) `mod` 2 == 0
-
-
-
 
 
 
