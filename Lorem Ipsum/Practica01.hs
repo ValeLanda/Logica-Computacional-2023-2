@@ -57,5 +57,10 @@ module Practica01 where
     ackermann m 0 = ackermann (m-1) 1
     ackermann m n = ackermann (m - 1) (ackermann m (n - 1))
 
-    sumaPares :: Num a => [(a,a)] -> [a]
-    sumaPares parejas = aplica (\(x,y) -> x+y) parejas
+    -- sumaPares, recibe como parámetro una lista de pares ordenados y devuelve un par
+    --con el resultado de sumar todos los pares ordenados de la lista.
+    sumaPares :: Num a => [(a, a)] -> (a, a)
+    sumaPares [] = (0, 0)
+    sumaPares ((x,y):xs) = (x+x', y+y')
+         where (x', y') = sumaPares xs
+
