@@ -3,7 +3,7 @@ module Practica01 where
     import GHC.Natural
 
     -- Recibe como parámetro una lista y devuelve un booleano, 
-    True en caso de que la lista sea un palíndromo y False en el caso contrario.
+    -- True en caso de que la lista sea un palíndromo y False en el caso contrario.
     esPalindromo :: Eq a => [a] -> Bool --Usamos la clase Eq para poder hacer la comparacion de valores 
     esPalindromo [] = True
     esPalindromo [_] = True
