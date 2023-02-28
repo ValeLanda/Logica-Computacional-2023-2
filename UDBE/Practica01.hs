@@ -5,20 +5,30 @@
 esPalindromo xs = xs == reverse xs
 
 --Ejercicio 2 Divisores
+--recibe como parámetro un natural n y 
+--devuelve una lista con todos los divisores de n
 divisores :: Int -> [Int]
 divisores a = [b | b <- [1..a], a `mod` b == 0]
 
 --Ejercicio 3 Primos
+--recibe como parámetro un natural n 
+--devuelve una lista con todos los 
+--números primos entre 1 y n.
 primos:: Integer -> [Integer]
 primos n
     | n <= 0 = []
     | otherwise = [x | x <- [2..n], esPrimo x]
 
 --Ejercicio 4 SumaPares
+--ecibe como parámetro una lista de pares ordenados 
+-- devuelve una par con el resultado de sumar todos
+-- los pares ordenados de la lista
 sumaPares:: (Num a) => (a,a) -> (a,a)-> (a,a)
 sumaPares (x1, y1) (x2,y2)= (x1+x2, y1+y2)
 
 --Ejercicio 5 ProductoCartesiano
+--funcion que recibe dos listas, A y B, 
+--devuelve una lista con el producto cartesiano, AxB.
 productoC :: [[a]] -> [[a]]
 productoC [] = [[]]
 productoC (xs:xss) = [x:ys | x <- xs, ys <- productoC xss]
