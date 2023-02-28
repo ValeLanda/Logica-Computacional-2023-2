@@ -2,6 +2,12 @@ module Practica01 where
 
     import GHC.Natural
 
+    -- Recibe como parámetro una lista y devuelve un booleano, 
+    -- True en caso de que la lista sea un palíndromo y False en el caso contrario.
+    esPalindromo :: Eq a => [a] -> Bool --Usamos la clase Eq para poder hacer la comparacion de valores 
+    esPalindromo [] = True
+    esPalindromo [_] = True
+    esPalindromo (x:xs) = (last xs == x) && esPalindromo (init xs) --la función last devuelve el último elemento de la lista, mientras que init devuelve todos los elementos de la lista excepto el último.
 
     --Esta función recibe un entero y regresa la lista con todos los divisores del número
     divisores :: Integer -> [Integer]
@@ -52,5 +58,10 @@ module Practica01 where
     ackermann m 0 = ackermann (m-1) 1
     ackermann m n = ackermann (m - 1) (ackermann m (n - 1))
 
-    sumaPares :: Num a => [(a,a)] -> [a]
-    sumaPares parejas = aplica (\(x,y) -> x+y) parejas
+    -- sumaPares, recibe como parámetro una lista de pares ordenados y devuelve un par
+    --con el resultado de sumar todos los pares ordenados de la lista.
+    sumaPares :: Num a => [(a, a)] -> (a, a)
+    sumaPares [] = (0, 0)
+    sumaPares ((x,y):xs) = (x+x', y+y')
+         where (x', y') = sumaPares xs
+
