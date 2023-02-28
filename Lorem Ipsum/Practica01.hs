@@ -42,8 +42,10 @@ module Practica01 where
 
     --Esta función recibe una cadena y regresa un booleano
     cadenaPar :: String -> Bool
-    --Sacamos el módulo 2 de la longitud de la cadena para ver si es par, si lo es regresa True, si no regresa False
-    cadenaPar s = length s `mod` 2 == 0
+    --La cadena vacía es par
+    cadenaPar "" = True
+    --Y las demás cadenas son la negación de la cadena anterior
+    cadenaPar (x:s) = not (cadenaPar s)
     
     -- funcion elimina repetidos soporte cualquier tipo de dato  ya que usamos Eq para hacer equivalencia especial de haskell
     eliminaRepetidos :: Eq a => [a] -> [a]
