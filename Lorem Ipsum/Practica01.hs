@@ -10,7 +10,8 @@ module Practica01 where
     divisores n = [x | x <- [1..n], n `mod` x == 0]
 
     -- Esta función recibe un entero y regresa todos los primos desde 0 hasta ese número
-    --primos :: Integer -> [Integer]
+    primos :: Integer -> [Integer]
+    primos n = [x | x <- [2..n], divisores x == [1,x]]
     -- Se checarán todos los números entre 1 y n y en los casos en los que la lista sea sólo el 1 y n mismo 
     -- tendremos que ese número es primo
     --primos n = [n]
@@ -49,3 +50,6 @@ module Practica01 where
     ackermann 0 n = n + 1
     ackermann m 0 = ackermann (m-1) 1
     ackermann m n = ackermann (m - 1) (ackermann m (n - 1))
+
+    sumaPares :: Num a => [(a,a)] -> [a]
+    sumaPares parejas = aplica (\(x,y) -> x+y) parejas
