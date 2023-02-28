@@ -12,7 +12,7 @@ divisores a = [b | b <- [1..a], a `mod` b == 0]
 primos:: Integer -> [Integer]
 primos n
     | n <= 0 = []
-    | otherwise = [x| x <- [2..n], esPrimo x]
+    | otherwise = [x | x <- [2..n], esPrimo x]
 
 --Ejercicio 4 SumaPares
 sumaPares:: (Num a) => (a,a) -> (a,a)-> (a,a)
@@ -22,6 +22,11 @@ sumaPares (x1, y1) (x2,y2)= (x1+x2, y1+y2)
 productoC :: [[a]] -> [[a]]
 productoC [] = [[]]
 productoC (xs:xss) = [x:ys | x <- xs, ys <- productoC xss]
+
+--Ejercicio 6 Aplica
+aplica :: (a -> b) -> [a] -> [b]
+aplica funcion xs = [funcion x | x <- xs]
+
 
 --Ejercicio 7 Modulo
 modulo :: Int -> Int -> Int

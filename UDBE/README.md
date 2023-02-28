@@ -4,12 +4,12 @@
 
 - Ulises Josue Anaya Perez| No. de cuenta: 319016572
 - Diego Castro Rendon| No. de cuenta: 31921289
-- Erick Iram Garcia Velasco| No. de cuenta:
+- Erick Iram Garcia Velasco| No. de cuenta: 318044309
 - Bruno Ortiz Amaya| No. de cuenta: 318128676
 
 ## Instalacion
 
-Para correr la practica tenemos que tener Haskell
+Para correr la practica necesitamos GHC, el compilador para Haskell
 
 ## Linux
 
@@ -64,7 +64,7 @@ $ sudo layman -a haskell $ sudo emerge haskell-platform
 
 ## Ejecucion
 
-Para ejecutar los ejercicios desde terminal, desde la carpeta con el nmbre del equipo ejecutar:
+Para ejecutar los ejercicios desde terminal, desde la carpeta con el nombre del equipo ejecutar:
 
 ```
 ghci
