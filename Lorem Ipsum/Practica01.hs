@@ -25,13 +25,14 @@ module Practica01 where
 
     -- Esta función recibira una función y una lista y regresará una lista donde la función ha sido aplicada a
     -- todos los elementos de la lista
+    aplica :: (t -> a) -> [t] -> [a]
     aplica func [] = []
     aplica func (x:xs) = func x : aplica func xs
     
     --Esta función recibe dos enteros y regresa un entero
     modulo :: Int -> Int -> Int
-    --Multiplicamos el cociente por el segundo valor y le restamos eso al primero, para así obtener el residuo de la división.
-    modulo n m = n - m * div n m
+    --Restamos m a n hasta que n sea menor que m
+    modulo n m = if n < m then n else modulo (n-m) m
 
     --Esta función recibe una cadena y regresa un booleano
     cadenaPar :: String -> Bool
