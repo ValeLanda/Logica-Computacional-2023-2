@@ -1,5 +1,8 @@
 module Practica01 where
 
+    import GHC.Natural
+
+
     --Esta función recibe un entero y regresa la lista con todos los divisores del número
     divisores :: Integer -> [Integer]
     -- Se checarán todos los número entre 1 y n y si el módulo de n por x es 0, entonces este será un divisor
@@ -16,3 +19,20 @@ module Practica01 where
     -- todos los elementos de la lista
     aplica func [] = []
     aplica func (x:xs) = func x : aplica func xs
+    
+    --Esta función recibe dos enteros y regresa un entero
+    modulo :: Int -> Int -> Int
+    --Multiplicamos el cociente por el segundo valor y le restamos eso al primero, para así obtener el residuo de la división.
+    modulo n m = n - m * div n m
+
+    --Esta función recibe una cadena y regresa un booleano
+    cadenaPar :: String -> Bool
+    --Sacamos el módulo 2 de la longitud de la cadena para ver si es par, si lo es regresa True, si no regresa False
+    cadenaPar s = length s `mod` 2 == 0
+
+    --Esta función recibe dos naturales y regresa un natural
+    ackermann :: Natural -> Natural -> Natural
+    --Solo seguimos tal cual la definición de la función
+    ackermann 0 n = n + 1
+    ackermann m 0 = ackermann (m-1) 1
+    ackermann m n = ackermann (m - 1) (ackermann m (n - 1))
