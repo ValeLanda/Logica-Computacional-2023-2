@@ -6,6 +6,7 @@
 reversa :: [a]->[a]
 reversa []=[]
 reversa (x:xs)=reversa xs ++ [x]
+
 esPalindromo :: (Eq a)=> [a]-> Bool
 esPalindromo []= True
 esPalindromo [x] = True
@@ -13,10 +14,12 @@ esPalindromo xs = if (xs == reversa xs) then True else False
 
 --2. Función divisores: recibe como parámetro un natural n y devuelve 
 --una lista con todos los divisores de n.
-divisor 0=[]
-divisor x= (x:(divisor (x-1)))
+divisor :: Int -> [Int]
+divisor 0 = []
+divisor x = (x:(divisor (x-1)))
+
 divisores :: Int -> [Int]
-divisores x =[y|y <- divisor x ,mod x y == 0 ]
+divisores x = [y|y <- divisor x ,mod x y == 0 ]
 
 --3. Función primos, recibe como parámetro un natural n y devuelve una 
 --lista con todos los números primos entre 1 y n.
@@ -35,18 +38,27 @@ sumaPares ((x,y):xs) = (x + fst (sumaPares xs), y + snd (sumaPares xs))
 
 --5. Función productoCartesiano, recibe como parámetros dos listas, A y B, 
 --y devuelve una lista con el producto cartesiano, AxB.
+
 productoCartesiano :: [a] -> [b] -> [(a,b)]
 productoCartesiano [] _ = []
 productoCartesiano _ [] = []
 productoCartesiano (x:xs) (y:ys) = (x,y) : productoCartesiano (x:xs) ys ++ productoCartesiano xs (y:ys)
 
 
---6. Función aplica, recibe como parámetros una función y una lista, y devuelve 
+--6. Función aplica, recibe como parámetros una función y una lista, y devuelve
 --una lista con el resultado de evaluar cada elemento.
 
+aplica :: (a -> b) -> [a] -> [b]
+aplica func [] = []
+aplica func (x:xs) = func x:(aplica func xs)
 
 --7. Función modulo, sin usar la función módulo predefinida en Haskell.
 
+modulo :: Integer -> Integer -> Integer
+modulo 0 _ = 0
+modulo a b
+    | a < b = a
+    | otherwise = modulo (a-b) b
 
 --8. Funcipon cadenaPar, recibe como parámetro una cadena y devuelve 
 --True si la longitud de la cadena es par y False en el caso contrario.
