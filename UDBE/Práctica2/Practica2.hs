@@ -16,7 +16,6 @@ module Arboles where
 
     altura :: ArbolB a -> Int
     altura Void = 0
-    altura (Nodo a (Void)(Void)) = 1
     altura (Nodo a (hijoI)(hijoD)) = 1 + maximum(altura hijoI, altura hijoD)
 
 
@@ -26,3 +25,6 @@ module Arboles where
 
     tree1 :: ArbolB Int
     tree1 = Nodo 1(Nodo 2(Nodo 4 (Void)(Void))(Void))(Nodo 5(Void)(Void))
+
+    tree2 :: ArbolB Int
+    tree2 = Nodo 2(Void)(Nodo 3 (Nodo 4 (Void)(Void))(Nodo 7 (Void)(Void)))
