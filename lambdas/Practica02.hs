@@ -32,7 +32,7 @@ ArbolBin, arbol binario con informacion en las hojas y en los nodos internos.
 -}
 
 
-
+tamanio (Tree _ _ )
 {-
 Tipo de dato DigBinario, el cual contiene unicaamente al Cero y Uno.
 -}
@@ -52,21 +52,6 @@ suma a b = if a<b || a>b then Uno
            else Cero 
 
 
--- data Alumno' = Local Alumno | Intercambio Alumno Pais
-
-
--- --Tipos usando sata , recusivos
--- data ArbolBin a = Hoja a | Nodo (ArbolBin a) (ArbolBin a)
-
--- data ArbolBin' a = Nil | Nodo' ( ArbolBin' a ) a (ArbolBin' a)
---    /
---   (a)
---  /  \
---Nil  Nil
-
-
-
-
-
+--Node 5 (Node 7 (Void)(Node 8 (Node 1 (Node 3 (Void ) (Void)) (Node 2 (Void) (Void))) (Void))) (Node 6 (Void) (Void)) 
 
 
