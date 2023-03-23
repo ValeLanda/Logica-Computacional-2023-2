@@ -61,3 +61,8 @@ module Arboles where
 
     tree6 :: ArbolB Int
     tree6 = Void
+
+
+
+
+
