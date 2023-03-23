@@ -1,4 +1,4 @@
-module Practica01 where
+module Practica02 where
 
     data ArbolBin a = Hoja a | Nodo (ArbolBin a) (ArbolBin a) deriving (Show, Eq)
 
@@ -15,3 +15,7 @@ module Practica01 where
                     | a == n = 1
                     | otherwise = 0
     ocurrencias (Nodo a1 a2) n = ocurrencias a1 n + ocurrencias a2 n
+    
+    listaHojas :: ArbolBin a -> [a]
+    listaHojas (Hoja a) = [a]
+    listaHojas (Nodo a1 a2) = listaHojas a1 ++ [] ++ listaHojas a2
