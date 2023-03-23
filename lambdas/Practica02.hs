@@ -40,8 +40,22 @@ tamanio (Node t (a) (b))  = tamanio (a) + tamanio (b)
 
 altura Void = 0
 altura (Node t (a)(b)) = 1 + max (altura a)(altura b)
+                   
+                   
+ocurrencias _ Void = 0
+ocurrencias x (Node t (a) (b)) = if x == t
+                                 then 1 + ocurrencias x a + ocurrencias x b
+                                 else  ocurrencias x a + ocurrencias x b
 
->>>>>>> refs/remotes/origin/main
+aplicaArbol _ Void = Void
+aplicaArbol f (Node t (a) (b)) = Node (f t)
+                                 (aplicaArbol f a)
+                                 (aplicaArbol f b)
+
+                                 
+convertone a = 1
+
+
 {-
 Tipo de dato DigBinario, el cual contiene unicaamente al Cero y Uno.
 -}
