@@ -84,7 +84,3 @@ suma :: DigBinario -> DigBinario -> DigBinario
 suma a b = if a<b || a>b then Uno
            else Cero
 
-
---Node 5 (Node 7 (Void)(Node 8 (Node 1 (Node 3 (Void ) (Void)) (Node 2 (Void) (Void))) (Void))) (Node 6 (Void) (Void)) 
-
-
