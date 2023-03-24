@@ -40,4 +40,41 @@ instance Enum Elemento where
     pred Luz = Aire
     pred Oscuridad = Luz
 
+--Funcion que indica que tiene informacion en hojas y en los nodos
+-- data ArbolBinario a = Hoja a | Nodo (ArbolBinario a) (ArbolBinario a)
 
+data Arbol a = Nil | Hoja a | A a (Arbol a) (Arbol a) deriving(Show)
+maximoAux :: Ord a => [a] ->a ->a
+maximoAux [] x = x
+maximoAux (x:xs) y = if x > y then maximoAux xs x else maximoAux xs y
+
+maximo :: Ord a => [a]-> a
+maximo (x:xs)  = maximoAux xs x
+
+-- altura de un arbol que tiene informacion en hojas y en los nodos
+altura :: Arbol a -> Integer 
+altura Nil =0
+altura (Hoja a) = 1
+altura (A a l r ) = 1 + maximo [altura l , altura r]
+
+
+--Numero de hojas de un arbol
+tamanio :: Arbol a -> Integer 
+tamanio Nil =0
+tamanio (Hoja a) =1
+tamanio (A a l r) = tamanio l +tamanio r
+
+-- listaHojas donde se almacenan las hojas de un arbol
+listaHojas :: Arbol a -> [a]
+listaHojas Nil =[]
+listaHojas (Hoja a)=[a]
+listaHojas (A a l r)= listaHojas l ++ [a] ++listaHojas r 
+
+
+--Funcion unir donde se unen arboles en un solo arbol
+unir :: Arbol a -> Arbol a -> a -> Arbol a
+unir (A b l r) (Hoja c) a = (A a (A b l r) (Hoja c) )
+unir (Hoja c) (A b l r) a = (A a (Hoja c) (A b l r))
+unir (Hoja c) (Hoja b) a = (A a (Hoja c) (Hoja b))
+unir (A a l r) (A b le ri) c = (A c (A a l r) (A b le ri))
+unir  _  _   _ = Nil
