@@ -84,7 +84,7 @@ instance Enum Elementos where
     Tipo de dato para representar un arbol binario (completo?)
     Los arboles binarios se pueden mostrar
 -}
-data ArbolBin a = Hoja a | Nodo a (ArbolBin a) (ArbolBin a)
+data ArbolBin a = Hoja a | Nodo a (ArbolBin a) (ArbolBin a) | NodoConHI a (ArbolBin a) | NodoConHD a (ArbolBin a)
 
 {-|
     Forma de mostrar los arboles binarios
@@ -92,39 +92,47 @@ data ArbolBin a = Hoja a | Nodo a (ArbolBin a) (ArbolBin a)
 instance Show a => Show (ArbolBin a) where
     show (Hoja x) = "Hoja " ++ show x
     show (Nodo x izq der) = "Nodo " ++ show x ++ " (" ++ show izq ++ ") (" ++ show der ++ ")"
+    show (NodoConHI x izq) = "NodoConHI " ++ show x ++ " (" ++ show izq ++ ")"
+    show (NodoConHD x der) = "NodoConHD " ++ show x ++ " (" ++ show der ++ ")"
 
 {-|
   La funcion tamanio nos dice el numero de hojas de un arbol binario
   Toma un argumento de tipo 'ArbolBin a', el arbol binario a evaluar
   Retorna un valor de tipo 'Int', el tamanio del arbol binario
   La funcion tiene un caso base, la hoja, que regresa 1
-  En el caso recursivo, se suman los tamanios de los subarboles izquierdo y derecho
+  En los casos recursivos se suman los tamanios de los hijos que tenga el nodo
 -}
 tamanio :: ArbolBin a -> Int
 tamanio (Hoja _) = 1
 tamanio (Nodo _ izq der) = tamanio izq + tamanio der
+tamanio (NodoConHI _ izq) = tamanio izq
+tamanio (NodoConHD _ der) = tamanio der
 
 {-|
   La funcion altura nos dice la altura de un arbol binario
   Toma un argumento de tipo 'ArbolBin a', el arbol binario a evaluar
   Retorna un valor de tipo 'Int', la altura del arbol binario
   La funcion tiene un caso base, la hoja, que regresa 1
-  En el caso recursivo, se suma 1 al maximo de las alturas de los subarboles izquierdo y derecho
+  En los casos recursivos se toma el maximo entre las alturas de los hijos que tenga el nodo y se le suma 1
 -}
 altura :: ArbolBin a -> Int
 altura (Hoja _) = 1
 altura (Nodo _ izq der) = 1 + max (altura izq) (altura der)
+altura (NodoConHI _ izq) = 1 + altura izq
+altura (NodoConHD _ der) = 1 + altura der
 
 {-|
   La funcion aplicaArbol aplica una funcion a todos los elementos de un arbol binario
   Toma un argumento de tipo '(a -> b)', la funcion a aplicar y un argumento de tipo 'ArbolBin a', el arbol binario
   Retorna un valor de tipo 'ArbolBin b', el arbol binario con los elementos modificados
   La funcion tiene un caso base, la hoja, que aplica la funcion al elemento del nodo
-  En el caso recursivo, se aplica la funcion al elemento del nodo y se aplica la funcion a los subarboles izquierdo y derecho
+  En los casos recursivos se aplica la funcion a los elementos de los hijos que tenga el nodo y se crea un nuevo nodo con el elemento modificado y los hijos modificados
 -}
 aplicaArbol :: (a -> b) -> ArbolBin a -> ArbolBin b
 aplicaArbol f (Hoja x) = Hoja (f x)
 aplicaArbol f (Nodo x izq der) = Nodo (f x) (aplicaArbol f izq) (aplicaArbol f der)
+aplicaArbol f (NodoConHI x izq) = NodoConHI (f x) (aplicaArbol f izq)
+aplicaArbol f (NodoConHD x der) = NodoConHD (f x) (aplicaArbol f der)
 
 {-|
   La funcion unir une dos arboles binarios en un solo arbol binario
