@@ -4,6 +4,8 @@
 -}
 
 
+--Ejercicio 02
+
 module Arboles where
 
     -- La estructura permite Void para representar el arbol vacìo y para
