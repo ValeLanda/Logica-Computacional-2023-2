@@ -44,5 +44,24 @@ module Arboles where
     tree2 :: ArbolBin Int
     tree2 = Nodo (Hoja 3) 2 (Nodo (Hoja 4) 3 (Hoja 7))
 
+<<<<<<< HEAD
     tree3 :: ArbolBin Int
     tree3 = Hoja 6
+=======
+    tree3 :: ArbolB Int
+    tree3 = Nodo 6 (Void)(Void)
+
+    tree4 :: ArbolB Int
+    tree4 = Hoja 99
+
+    tree5 :: ArbolB Int
+    tree5 = unir tree1 tree6 4
+
+    tree6 :: ArbolB Int
+    tree6 = Void
+
+
+
+
+
+>>>>>>> 8a8f4401ee8a5b3180478f00dfe29eb68f36b474
