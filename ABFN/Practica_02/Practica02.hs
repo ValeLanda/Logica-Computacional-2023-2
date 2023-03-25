@@ -78,3 +78,36 @@ unir (Hoja c) (A b l r) a = (A a (Hoja c) (A b l r))
 unir (Hoja c) (Hoja b) a = (A a (Hoja c) (Hoja b))
 unir (A a l r) (A b le ri) c = (A c (A a l r) (A b le ri))
 unir  _  _   _ = Nil
+
+
+-- 3. Crea el tipo de dato DigBinario, el cual unicamente debe
+-- contener al Cero y al Uno. A partir de DigBinario crea el
+-- tipo de dato NumBinario.
+
+data DigBinario = Cero | Uno deriving (Show, Eq)
+type NumBinario = [DigBinario]
+
+-- Funciones auxiliares
+
+-- Función que invierte un númeroBinario
+reversaBinaria :: NumBinario -> NumBinario
+reversaBinaria [] = []
+reversaBinaria (x:xs) = reversaBinaria xs ++ [x]
+
+-- Función que suma dos números binarios
+sumaBinaria :: NumBinario -> NumBinario -> NumBinario
+sumaBinaria  [] [] = []
+sumaBinaria  [] ys = ys
+sumaBinaria  xs [] = xs
+sumaBinaria  (x:xs) (y:ys) = case (x, y) of
+    (Cero, Cero) -> Cero : sumaBinaria xs ys
+    (Cero, Uno) -> Uno : sumaBinaria xs ys
+    (Uno, Cero) -> Uno : sumaBinaria xs ys
+    (Uno, Uno) -> Cero : sumaBinaria xs (sumaBinaria [Uno] ys)
+
+-- Función principal
+
+-- a. suma, que recibe dos NumBinario y devuelve su suma binaria.
+suma :: NumBinario -> NumBinario -> NumBinario
+suma xs ys = sumaBinaria xs ys
+
