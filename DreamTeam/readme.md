@@ -4,8 +4,6 @@
 	No. de cuenta: 319121099
 + Demetrio Torres Yanahi
 	No. de cuenta: 319169922
-+ Flores Mata Ricardo
-	No. de cuenta: 422127808
 + Caballero Jiménez Oscar Emilio
 	No. de cuenta: 315008708
 
