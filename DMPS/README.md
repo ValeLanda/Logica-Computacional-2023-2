@@ -7,4 +7,4 @@
  - Resendiz Mendoza Brenda Paola (319041356)
  
 ## Ejecución:
- ghci Practica01.hs
+ ghci Practica02.hs
