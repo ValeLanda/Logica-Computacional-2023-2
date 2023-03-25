@@ -1,4 +1,4 @@
-# Practica 1 Logica computacional
+# Practica 2 Logica computacional
 
 ## Integrantes
 
@@ -73,5 +73,5 @@ ghci
 Despues dentro de ghci ejecutar repsectivamente el nombre del archivo:
 
 ```
-:l Practica01.hs
+:l Practica2.hs
 ```

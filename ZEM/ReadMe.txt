@@ -7,5 +7,12 @@ Integrantes del equipo
 
 Cómo ejecutar: 
 $ ghci 
+--Para práctica uno:
+
 > :l Practica01.hs
+
+--Para práctica dos:
+
+> :l Practica02.hs
+
 
