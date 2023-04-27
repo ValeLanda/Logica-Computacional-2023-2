@@ -44,4 +44,3 @@ contar F = 0
 contar (Equal x y) = contar x + contar y + 1
 contar (Not x) = contar x + 1
 contar (And x y) = contar x + contar y + 1
-
