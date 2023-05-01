@@ -1,5 +1,31 @@
+-- Práctica 3
+-- Lógica Computacional
+-- Equipo Alfa 
+
+-- Función que elimina las vocales que se encuentren dentro de la cadena de texto
+eliminarVocales :: String -> String
+eliminarVocales [] = []
+eliminarVocales (x:xs) = 
+    esVocal ++ eliminarVocales xs
+    where esVocal = if(elem x "aeiouAEIOU")then "" else [x]
+
+-- Función que codifica cualquier cualquier cadena de texto con el cifrado César cambiando las posiciones de acuerdo 
+-- al número que se le pase como parámetro
+cifrar :: String -> Int -> String
+cifrar ""_ =""
+cifrar (x:xs) n = cifrando x n : cifrar xs n
+    where 
+        cifrando letra n = toEnum((fromEnum letra - fromEnum 'a' + n)`mod` 26 + fromEnum 'a'):: Char
+
+{-Ejemplos de uso:
+cifrar "hola" 3 = "krod"
+cifrar "fernanda" 20 = "zylhuhxu"
+cifrar "cielito" 14 = "qwszwhc"-}
+
+-- Dato Exp
 data Exp = Lit Int | Sum Exp Exp | Mult Exp Exp | Res Exp Exp | IfThEl ExpB Exp Exp deriving Show
 
+-- Dato Exp8
 data ExpB = V | F | Or ExpB ExpB | Equal ExpB ExpB | Not ExpB | And ExpB ExpB deriving Show
 
 -- Evaluación de expresiones aritméticas. 
