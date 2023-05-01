@@ -44,3 +44,36 @@ contar F = 0
 contar (Equal x y) = contar x + contar y + 1
 contar (Not x) = contar x + 1
 contar (And x y) = contar x + contar y + 1
+
+{- 4. - Completar el tipo de Expr para que contenga -}
+data Expr = Lit Int | Sum Expr Expr | Mult Expr Expr | Pow Expr Expr deriving Show -- Expr como es dado en la práctica
+-- a) Una expresión aritmética más aparte de las ya dadas
+
+-- Función que evalúa expresiones aritméticas 
+evaluarA :: Expr -> Int 
+-- Evaluar literales
+evaluarA (Lit a) = a
+
+-- Evaluar suma de expresiones
+evaluarA (Sum a b) = evaluarA a + evaluarA b
+
+-- Evaluar multiplicación de expresiones
+evaluarA (Mult a b) = evaluarA a * evaluarA b
+
+-- Evaluar potenciación de funciones
+evaluarA (Pow a b) = evaluarA a ^ evaluarA b
+
+ifThEl :: ExpB -> Expr -> Expr -> Int
+ifThEl x a b
+  | (evaluar x) == True = evaluarA a -- si la expresión es cierta regresamos la evaluación de a
+  | otherwise = evaluarA b -- si no regresamos la evaluación de b
+
+contarA :: Expr -> Int 
+-- Las literales no tienen operadores 
+contarA (Lit a) = 0
+
+-- Todas las demás funciones tienen un operador cada una 
+
+contarA (Sum a b) = contarA a + contarA b + 1
+contarA (Mult a b) = contarA a + contarA b + 1
+contarA (Pow a b) = contarA a + contarA b + 1
