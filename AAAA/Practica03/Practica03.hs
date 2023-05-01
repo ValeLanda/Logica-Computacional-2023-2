@@ -90,6 +90,7 @@ instance Show Exp where
     show (Sum a b) = show a ++ " + " ++ show b
     show (Mult a b) = show a ++ " * " ++ show b
     show (Sqr a) = show a ++ " ^2 "
+    show (IfThEl b x y) = " IF " ++ show b ++ " THEN " ++ show x ++ "ELSE" ++ show y
     
 {-|
    Función que evalúa expresiones arimeticas
@@ -99,6 +100,9 @@ evalA (Lit a) = a
 evalA (Sum a b) = a+b
 evalA (Mult a b) = a*b
 evalA (Sqr a) = a*a
+evalA (IfThEl b x y)
+    | evalB b == True = x
+    | otherwise = y
 
 {-|
    Función que cuenta la cantidad de operadores en una expresión aritmetica
@@ -108,3 +112,4 @@ contarA (Lit a) = 0
 contarA (Sum a b ) = 1 + contarA a + contarA b
 contarA (Mult a b) = 1 + contarA a + contarA b
 contarA (Sqr a) = 1 + contarA a
+contarA (IfThEl b x y) = 1 + contarA x + contarA y 
