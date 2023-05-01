@@ -73,3 +73,38 @@ contar F = 0
 contar (Equal a b) = 1 + contar a + contar b
 contar (Not a) = 1 + contar a
 contar (And a b) = 1 + contar a + contar b
+
+-- 4.
+{-|
+Tipo de dato Exp
+-}
+
+data Exp = Lit Int | Sum Exp Exp | Mult Exp Exp | Sqr Exp | IfThEl ExpB Exp Exp deriving Show
+
+{-|
+Mostrar las expresioner aritmeticas con los operadores usuales
+-}
+
+instance Show Exp where
+    show (Lit a) = "a"
+    show (Sum a b) = show a ++ " + " ++ show b
+    show (Mult a b) = show a ++ " * " ++ show b
+    show (Sqr a) = show a ++ " ^2 "
+    
+{-|
+   Función que evalúa expresiones arimeticas
+-}
+evalA :: Exp -> Int
+evalA (Lit a) = a
+evalA (Sum a b) = a+b
+evalA (Mult a b) = a*b
+evalA (Sqr a) = a*a
+
+{-|
+   Función que cuenta la cantidad de operadores en una expresión aritmetica
+-}
+contarA :: Exp -> Int
+contarA (Lit a) = 0
+contarA (Sum a b ) = 1 + contarA a + contarA b
+contarA (Mult a b) = 1 + contarA a + contarA b
+contarA (Sqr a) = 1 + contarA a
