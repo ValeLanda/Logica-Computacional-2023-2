@@ -1,4 +1,4 @@
-# Practica 02
+# Practica 03
 
 ## Cómo abrir
 Se asume que se cuenta con el compilador GHC para Haskell y el entorno GHCI instalados. Para mas información, refierase a los medios de instalación facilitados en [Haskell.org](https://www.haskell.org/get-started/). Para esta practica se está usando la versión 9.2.5 de GHCi.
