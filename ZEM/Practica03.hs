@@ -35,7 +35,7 @@ desplazar c n
 
 --La función auxiliar "rotar" toma la letra base por ejemplo ('a' o 'A'), y la letra que se va a desplazar, y así es como nos devuelve la letra desplazada por el int dado.
 rotar :: Char -> Char -> Int -> Char
-rotar base c n = toEnum $ ((fromEnum c - fromEnum base + n) `mod` 26) + fromEnum base:
+rotar base c n = toEnum $ ((fromEnum c - fromEnum base + n) `mod` 26) + fromEnum base
 
 --EJEMPLOS DE USO Y FUNCIONAMIENTO. 
 --El cifrado César se clasifica como un cifrado por sustitución en el que el alfabeto en el texto plano se desplaza por un número fijo en el alfabeto.
