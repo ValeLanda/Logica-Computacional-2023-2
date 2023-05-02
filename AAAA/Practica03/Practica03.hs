@@ -79,7 +79,7 @@ contar (And a b) = 1 + contar a + contar b
 Tipo de dato Exp
 -}
 
-data Exp = Lit Int | Sum Exp Exp | Mult Exp Exp | Sqr Exp | IfThEl ExpB Exp Exp deriving Show
+data Exp = Lit Int | Sum Exp Exp | Mult Exp Exp | Sqr Exp | IfThEl ExpB Exp Exp 
 
 {-|
 Mostrar las expresioner aritmeticas con los operadores usuales
@@ -90,19 +90,19 @@ instance Show Exp where
     show (Sum a b) = show a ++ " + " ++ show b
     show (Mult a b) = show a ++ " * " ++ show b
     show (Sqr a) = show a ++ " ^2 "
-    show (IfThEl b x y) = " IF " ++ show b ++ " THEN " ++ show x ++ "ELSE" ++ show y
+    show (IfThEl b x y) = " IF " ++ show b ++ " THEN " ++ show x ++ " ELSE " ++ show y
     
 {-|
    Función que evalúa expresiones arimeticas
 -}
 evalA :: Exp -> Int
 evalA (Lit a) = a
-evalA (Sum a b) = a+b
-evalA (Mult a b) = a*b
-evalA (Sqr a) = a*a
+evalA (Sum a b) = evalA a + evalA b
+evalA (Mult a b) = evalA a * evalA b
+evalA (Sqr a) = evalA a * evalA a
 evalA (IfThEl b x y)
-    | evalB b == True = x
-    | otherwise = y
+    | evalB b = evalA x
+    | otherwise = evalA y
 
 {-|
    Función que cuenta la cantidad de operadores en una expresión aritmetica
