@@ -15,4 +15,6 @@ $ ghci
 
 > :l Practica02.hs
 
+--Para práctica dos:
 
+> :l Practica03.hs
