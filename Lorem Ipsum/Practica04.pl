@@ -53,7 +53,10 @@ mayorlista([P], P).
 mayorlista([Head|Tail], Max) :- Max is Head, mayorlista([Tail],Q), esmayor(Head, Q). 
 mayorlista([Head|Tail], Max) :- mayorlista([Tail],Q), Max is Q, esmayor(Q, Head).
 
-
+%Implementa la función que te devuelva la cantidad de números distintos en una lista.
+distintos([], 0).
+distintos([X|XS], R) :-  not(member(X, XS)), distintos(XS, Z), R is Z+1.
+distintos([X|XS], R) :- member(X, XS), distintos(XS, Z), R is Z.
                                                        
 /* Fibonacci */
 fibonacci(0,0).
