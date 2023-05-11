@@ -8,6 +8,37 @@
 
 /*  1) Base de conocimientos */
 
+    %Ejercicio 1
+
+    %Hechos
+    vive_en(moises,jardines_del_sur).
+    vive_en(jesus,xochimilco).
+    vive_en(camilo,ajusco).
+    vive_en(cesar,jardines_del_sur).
+
+    %Reglas
+    vivenjuntos(A,B) :- vive_en(A,Direccion),vive_en(B,Direccion), A \= B.
+
+    %Ejercicio 2
+    %Hechos
+    juega(jordan,basquetbol).
+    juega(brady,futbol_americano).
+
+
+    %Reglas
+    % Recordemos que tenemos una disyunción
+    es_deportista(A,basquetbol) :- juega(A,basquetbol).
+    es_deportista(A,futbol_americano) :- juega(A,futbol_americano).
+
+    %Ejercicio 3
+
+    %Hechos
+    conductor(pedro).
+    pago_tenencia(pedro).
+
+
+    %Reglas
+    recibe_multa(A) :- conductor(A), not(pago_tenencia(A)).
 
 /*  2) Funcion que devuelve el maximo de una lista
     La funcion max recibe una lista y devuelve el maximo de la lista
