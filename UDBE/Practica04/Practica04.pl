@@ -82,3 +82,15 @@ recibe_multa(X):- pago_tenencia(X,no).
 % Evalua en false
 % recibe_multa(bruno)
 % recibe_multa(miguel)
+
+/*  
+    Función que calcula los números distintos en una lista. 
+    Utiliza una función auxiliar para verificar que un elemento esté dentro de una lista.
+*/
+
+cantidad_num([],0).
+cantidad_num([X|Xs], N) :- not(esta_en_lista(X, Xs)), cantidad_num(Xs, N1),N is N1 + 1.
+cantidad_num([X|Xs], N) :- esta_en_lista(X, Xs), cantidad_num(Xs, N).
+
+esta_en_lista(X, [X|_]).
+esta_en_lista(X, [_|Xs]) :- esta_en_lista(X, Xs).
