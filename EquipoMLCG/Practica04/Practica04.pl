@@ -8,37 +8,48 @@
 
 /*  1) Base de conocimientos */
 
-    %Ejercicio 1
+/* Base de conocimientos */
+vive_en(moises,jardines_del_sur).
+vive_en(jesus,xochimilco).
+vive_en(camilo,ajusco).
+vive_en(cesar,jardines_del_sur).
+juega(jordan,basquetbol).
+juega(brady,futbol_americano).
+juega(amelia, golf).
+nacionalidad(gustavo, mexicano).
+nacionalidad(ricky, gales).
+nacionalidad(dan, ingles).
+nacionalidad(kaela, escoces).
+nacionalidad(jimmy, irlandes).
+conductor(pedro).
+conductor(pablo).
+pago_tenencia(pedro).
 
-    %Hechos
-    vive_en(moises,jardines_del_sur).
-    vive_en(jesus,xochimilco).
-    vive_en(camilo,ajusco).
-    vive_en(cesar,jardines_del_sur).
+/*  1.a) Dos personas viven en la misma casa si tienen la misma direccion
+    Si se evalua la misma persona, se devuelve false
+    viven_juntos(moises,cesar) se evalua como true
+    viven_juntos(jesus,camilo) se evalua como false
+*/
+viven_juntos(A,B) :- vive_en(A,Direccion),vive_en(B,Direccion), A \= B.
 
-    %Reglas
-    vivenjuntos(A,B) :- vive_en(A,Direccion),vive_en(B,Direccion), A \= B.
+/*  1.b) Los que juegan basquetbol o futbol americano son deportistas
+    es_deportista(jordan) se evalua como true
+    es_deportista(amelia) se evalua como false
+*/
+es_deportista(A) :- juega(A,basquetbol).
+es_deportista(A) :- juega(A,futbol_americano).
 
-    %Ejercicio 2
-    %Hechos
-    juega(jordan,basquetbol).
-    juega(brady,futbol_americano).
+/*  1.c) Eres britanico si eres gales, ingles, escoces o irlandes
+    es_britanico(dan) se evalua como true
+    es_britanico(gustavo) se evalua como false
+*/
+es_britanico(A):- nacionalidad(A,B), (B == gales; B == ingles; B == escoces; B == irlandes).
 
-
-    %Reglas
-    % Recordemos que tenemos una disyunción
-    es_deportista(A,basquetbol) :- juega(A,basquetbol).
-    es_deportista(A,futbol_americano) :- juega(A,futbol_americano).
-
-    %Ejercicio 3
-
-    %Hechos
-    conductor(pedro).
-    pago_tenencia(pedro).
-
-
-    %Reglas
-    recibe_multa(A) :- conductor(A), not(pago_tenencia(A)).
+/*  1.d) Te pueden multar si no has pagado la tenencia de tu automovil
+    recibe_multa(pablo) se evalua como true
+    tePuedenMultar(pedro) se evalua como false
+*/
+recibe_multa(A) :- conductor(A), not(pago_tenencia(A)).
 
 /*  2) Funcion que devuelve el maximo de una lista
     La funcion max recibe una lista y devuelve el maximo de la lista
