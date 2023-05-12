@@ -15,6 +15,12 @@ $ ghci
 
 > :l Practica02.hs
 
---Para práctica dos:
+--Para práctica tres:
 
 > :l Practica03.hs
+
+--Para práctica cuatro:
+
+> Abrir el archivo dentro del siguiente link y correr en ese mismos software online:
+
+	https://swish.swi-prolog.org/
