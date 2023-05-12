@@ -1,4 +1,4 @@
-# Prácticas de Laboratorio
+# Práctica 4
 **Lógica Computacional, Laboratorio**
 
 **Alumno:**
