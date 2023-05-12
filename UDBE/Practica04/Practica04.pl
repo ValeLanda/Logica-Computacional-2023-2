@@ -84,6 +84,21 @@ recibe_multa(X):- pago_tenencia(X,no).
 % recibe_multa(miguel)
 
 /*  
+    Ejercicio 2
+    Función que devuelve el máximo de una lista de números, 
+    Utiliza una función auxiliar para comparar dos números
+*/
+
+maximoLista([X],X).
+maximoLista([X|Xs], Max) :- 
+    maximoLista(Xs, Max1),
+    max(X, Max1, Max).
+
+max(X,Y,X) :- X >= Y.
+max(X,Y,Y) :- X < Y.
+
+/*  
+    Ejercicio 3
     Función que calcula los números distintos en una lista. 
     Utiliza una función auxiliar para verificar que un elemento esté dentro de una lista.
 */
