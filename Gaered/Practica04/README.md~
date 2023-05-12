@@ -1,0 +1,14 @@
+# Práctica 04
+## Integrantes
++ García Aguilera Gael
+
+	No. de cuenta: 319303665
++ Rivera Hernández Ernesto Yahir
+
+	No. de cuenta: 319091629
++ Vargas Perez Eduardo
+
+	No. de cuenta: 319261411
+
+## Ejercicios
+Basta ejecutar `` para abrir el intérprete de GHC y probar las funciones de la práctica. Por ejemplo, si se desea probar *eliminarVocales* se debe ejecutar `*Main> eliminarVocales <parámetro>`
