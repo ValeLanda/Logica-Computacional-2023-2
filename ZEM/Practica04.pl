@@ -60,8 +60,11 @@ maximo(A, B, B) :- B > A.
 
 %Implementa la función que te devuelva la cantidad de números distintos en una lista.
 numerosDistintos([], 0).
-numerosDistintos([H|T], Contar) :- member(H, T), !, numerosDistintos(T, Contar).
+numerosDistintos([H|T], Contar) :- elemento(H, T), !, numerosDistintos(T, Contar).
 numerosDistintos([_|T], Contar) :- numerosDistintos(T, TContar), Contar is TContar + 1.
+
+elemento(Elem, [Elem|_]).
+elemento(Elem, [_|Rest]) :- member(Elem, Rest).
 
 %Ej de como consultar: numerosDistintos([1,2,3,4,6,6,7,7], Contar)
 
