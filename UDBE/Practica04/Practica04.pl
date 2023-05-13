@@ -111,8 +111,8 @@ esta_en_lista(X, [X|_]).
 esta_en_lista(X, [_|Xs]) :- esta_en_lista(X, Xs).
 
 /*
-* Ejercicio 5
-* Implementa la funcion de Fibonacci. Icluye el backtracking de 5.
+* Ejercicio 4
+* Implementa la funcion de Fibonacci. Incluye el backtracking de 5.
 */
 
 /*
