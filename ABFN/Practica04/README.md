@@ -1,6 +1,12 @@
 # Practica 04
 
-<<<<<<< HEAD
+## Integrantes
+
+- Ayala Flores Brenda (@Brendaaf2003), 319051287.
+- Cervantes Duarte José Fernando (@ferchoss99), 422100827.
+- Rodríguez Sanchez Alejandro Axel (@Ahexo), 315247697.
+- Zavala Velazquez Natalia (@nat80t), 319155189.
+
 ## Cómo abrir
 Se recomienda copiar y pegar el script `Practica04.pl` en el intérprete en línea para Prolog [SWISH](https://swish.swi-prolog.org) y hacer las conslutas allí.
 
@@ -92,18 +98,4 @@ X = 5.
 fibonacci(5,5).
 
 ```
-=======
-**Herramientas:**
-Usaremos SWISH, puede ser en su versión online
 
-## Objetivo:
-Usando PROLOG, el alumno debe ser capaz de: representar hechos; representar ideas y conocimiento como conjuntos de expresiones conjuntivas y disyuntivas; y hacer consultas. Además, se debe tener conciencia del efecto del backtracking para llegar a una meta.
-
->>>>>>> de478bb378904a61c967ba84362f35fa934e75b2
-
-**Integrantes**
-
-- Ayala Flores Brenda (@Brendaaf2003), 319051287.
-- Cervantes Duarte José Fernando (@ferchoss99), 422100827.
-- Rodríguez Sanchez Alejandro Axel (@Ahexo), 315247697.
-- Zavala Velazquez Natalia (@nat80t), 319155189.
