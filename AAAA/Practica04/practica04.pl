@@ -107,13 +107,16 @@ cantidad_distintos([X|Xs],Cantidad) :- not(en_lista(X,Xs)), cantidad_distintos(X
  *       Suma is 1+1, 2  is 1+1, fibonacci(3,2).
  *       fibonacci(3,2):- fibonacci(2,Resultado2).
  *       fibonacci(2,Resultado2):- 2>0, AntecesorA is 2-1, AntecesorB is 2-2, fibonacci(1,Resultado1).
+ *                                      1 is 2-1              0 is 2-2
  *       fibonacci(1,Resultado1):-  fibonacci(1,1). fibonacci(0,Resultado2).
  *       fibonacci(0,Resultado2):-  fibonacci(0,0).
  *       Suma is 1+0, 1 is 1+0,fibonacci(2,1).
  *       fibonacci(2,1):- Suma is 2+1, 3 is 2+1, fibonacci(4,3).
  *       fibonacci(4,3):- fibonacci(3,Resultado2).
  *       fibonacci(3,Resultado2):- 3>0, AntecesorA is 3-1, AntecesorB is 3-2, fibonacci(2,Resultado1).
+ *                                      2 is 3-1           1 is 3-2
  *       fibonacci(2,Resultado1):- 2>0, AntecesorA is 2-1, AntecesorB is 2-2, fibonacci(1,Resultado1).
+ *                                      1 is 2-1           0 is 2-2
  *       fibonacci(1,Resultado1):- fibonacci(1,1), fibonacci(0,Resultado2).
  *       fibonacci(0,Resultado2):- fibonacci(0,0), Suma is 1+0, 1 is 1+0, fibonacci(2,1), fibonacci(1,Resultado1).
  *       fibonacci(1,Resultado1):- fibonacci(1,1), Suma is 1+1, 2 is 1+1, fibonacci(3,2).
