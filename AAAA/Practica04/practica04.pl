@@ -86,3 +86,46 @@ cantidad_distintos([],0).
 cantidad_distintos([X|Xs],Cantidad) :- en_lista(X,Xs), cantidad_distintos(Xs,Cantidad), !.
 % Caso recursivo en el que el número no está repetido
 cantidad_distintos([X|Xs],Cantidad) :- not(en_lista(X,Xs)), cantidad_distintos(Xs,Cantidadxs), Cantidad is Cantidadxs + 1, !.
+
+
+/* Ejercicio 4)*/
+/* Cuando se ingresa fibonacci(5, suma)
+ *        Primero se manda a llamar 
+ *       fibonacci(5,suma):- 5>0 , AntecesorA is 5-1, AntecesorB is 5-2, fibonacci(4,Resultado1). 
+ *                                 4 is 5-1           3 is 5-2
+ *       fibonacci(4,Resultado1):- 4>0 , AntecesorA is 4-1, AntecesorB is 4-2, fibonacci(3,Resultado1). 
+ *                                        3 is 4-1          2 is 4-2
+ *       fibonacci(3,Resultado1):- 3>0 , AntecesorA is 3-1, AntecesorB is 3-2, fibonacci(2,Resultado1). 
+ *                                       2 is 3-1           1 is 3-2
+ *       fibonacci(2,Resultado1):- 2>0 , AntecesorA is 2-1, AntecesorB is 2-2, fibonacci(1,Resultado1).
+ *                                       1 is 2-1           0 is 2-2
+ *       fibonacci(1,Resultado1):-  fibonacci(1,1). fibonacci(0,Resultado2)    <-- Es la llamada de fibonacci(2,Resultado1) pero del antecesorB    
+ *       fibonacci(0,Resultado2):-  fibonacci(0,0).
+ *       Suma is 1+0, 1 is 1+0
+ *       fibonacci(2,1):- fibonacci(1,Resultado2).
+ *       fibonacci(1,Resultado2):- fibonacci(1,1).
+ *       Suma is 1+1, 2  is 1+1, fibonacci(3,2).
+ *       fibonacci(3,2):- fibonacci(2,Resultado2).
+ *       fibonacci(2,Resultado2):- 2>0, AntecesorA is 2-1, AntecesorB is 2-2, fibonacci(1,Resultado1).
+ *       fibonacci(1,Resultado1):-  fibonacci(1,1). fibonacci(0,Resultado2).
+ *       fibonacci(0,Resultado2):-  fibonacci(0,0).
+ *       Suma is 1+0, 1 is 1+0,fibonacci(2,1).
+ *       fibonacci(2,1):- Suma is 2+1, 3 is 2+1, fibonacci(4,3).
+ *       fibonacci(4,3):- fibonacci(3,Resultado2).
+ *       fibonacci(3,Resultado2):- 3>0, AntecesorA is 3-1, AntecesorB is 3-2, fibonacci(2,Resultado1).
+ *       fibonacci(2,Resultado1):- 2>0, AntecesorA is 2-1, AntecesorB is 2-2, fibonacci(1,Resultado1).
+ *       fibonacci(1,Resultado1):- fibonacci(1,1), fibonacci(0,Resultado2).
+ *       fibonacci(0,Resultado2):- fibonacci(0,0), Suma is 1+0, 1 is 1+0, fibonacci(2,1), fibonacci(1,Resultado1).
+ *       fibonacci(1,Resultado1):- fibonacci(1,1), Suma is 1+1, 2 is 1+1, fibonacci(3,2).
+ *       Suma is 3+2, 5 is 3+2, fibonacci(5,5).
+ *       Suma=5
+ */
+fibonacci(0,0).
+fibonacci(1,1).
+fibonacci(N,Suma) :-
+    N>0,
+    AntecesorA is N-1,
+    AntecesorB is N-2,
+    fibonacci(AntecesorA,Resultado1),
+    fibonacci(AntecesorB,Resultado2),
+    Suma is Resultado1+Resultado2.
