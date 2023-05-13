@@ -89,7 +89,7 @@ cantidad_distintos([X|Xs],Cantidad) :- not(en_lista(X,Xs)), cantidad_distintos(X
 
 
 /* Ejercicio 4)*/
-/* Cuando se ingresa fibonacci(5, suma)
+/* Cuando se ingresa fibonacci(5, Suma)
  *       fibonacci(5,suma):- 5>0 , AntecesorA is 5-1, AntecesorB is 5-2, fibonacci(4,Resultado1). 
  *                                 4 is 5-1           3 is 5-2
  *       fibonacci(4,Resultado1):- 4>0 , AntecesorA is 4-1, AntecesorB is 4-2, fibonacci(3,Resultado1). 
