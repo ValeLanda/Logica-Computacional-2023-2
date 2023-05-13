@@ -4,7 +4,7 @@
 Usaremos SWISH, puede ser en su versión online
 
 ## Objetivo:
-	Usando PROLOG, el alumno debe ser capaz de: representar hechos; representar ideas y conocimiento como conjuntos de expresiones conjuntivas y disyuntivas; y hacer consultas. Además, se debe tener conciencia del efecto del backtracking para llegar a una meta.
+Usando PROLOG, el alumno debe ser capaz de: representar hechos; representar ideas y conocimiento como conjuntos de expresiones conjuntivas y disyuntivas; y hacer consultas. Además, se debe tener conciencia del efecto del backtracking para llegar a una meta.
 
 
 **Integrantes**
