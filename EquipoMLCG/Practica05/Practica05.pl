@@ -6,7 +6,7 @@
 */
 
 
-/*  1)
+/*  1) Función combina que recibe lista L1 de numeros y a partir de ella contruye otra lista L2 tal que 
 */
 
 
@@ -61,6 +61,18 @@ decimal_binario_aux(1, "1").
 decimal_binario_aux(D, B):- X is D mod 2, Y is D // 2, decimal_binario_aux(Y, Z), number_string(X, W), string_concat(Z, W, B).
 
 
-/*  4)
+/*  4) 
 */
 
+/* Base de conocimientos */
+
+divide(2,6).
+diviide(2,12).
+divide(3,6).
+divide(3,12).
+
+/* Regla que genera la relacion "si un numero es divisible entre dos y entre tres, entonces es divisible entre 6 */
+
+divide(A,B) :- B mod A =:= 0. 
+divide(2,X) :- divide(6,X).
+divide(3,X) :- divide(6,X).
