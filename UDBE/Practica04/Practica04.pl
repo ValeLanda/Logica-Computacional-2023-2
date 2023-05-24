@@ -109,3 +109,30 @@ cantidad_num([X|Xs], N) :- esta_en_lista(X, Xs), cantidad_num(Xs, N).
 
 esta_en_lista(X, [X|_]).
 esta_en_lista(X, [_|Xs]) :- esta_en_lista(X, Xs).
+
+/*
+* Ejercicio 4
+* Implementa la funcion de Fibonacci. Incluye el backtracking de 5.
+*/
+
+/*
+* Ejemplos de resultados:
+* fibonacci(5,R) = 5
+* fibonacci(10,R) = 55
+* fibonacci(15,R) = 610
+*/
+
+/*
+* Backtracking de fibonacci(5,R) = 5
+* fibonacci de 0 : 0
+* fibonacci de 1 : 1
+* fibonacci de 2 : 1
+* fibonacci de 3 : 2
+* fibonacci de 4 : 3
+* fibonacci de 5 : 5
+*/
+
+fibonacci(0,0).
+fibonacci(1,1).
+fibonacci(N,Resultado) :- N > 1, N1 is (N - 1), N2 is (N - 2), fibonacci(N1, R1), fibonacci(N2, R2), Resultado is R1 + R2.
+

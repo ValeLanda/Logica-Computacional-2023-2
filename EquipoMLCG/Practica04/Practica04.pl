@@ -53,7 +53,6 @@ recibe_multa(A) :- conductor(A), not(pago_tenencia(A)).
 
 /*  2) Funcion que devuelve el maximo de una lista
     La funcion max recibe una lista y devuelve el maximo de la lista
-    Si la lista esta vacia, devuelve 0
     El caso base es cuando la lista tiene un solo elemento, devuelve ese elemento
     En el caso recursivo, se compara el primer elemento con el maximo del resto de la lista
 
@@ -69,7 +68,6 @@ recibe_multa(A) :- conductor(A), not(pago_tenencia(A)).
     max([1,2,3,2,1],X):- max([2,3,2,1],Y), 1<3, X is 3.
     X = 3
 */
-max([],0).
 max([X],X).
 max([X|XS],Y):- max(XS,Z), X>=Z, Y is X.
 max([X|XS],Y):- max(XS,Z), X<Z, Y is Z.
