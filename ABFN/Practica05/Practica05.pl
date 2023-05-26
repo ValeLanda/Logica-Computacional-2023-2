@@ -22,6 +22,20 @@ divide(6,X):- divide(2,X), divide(3,X).
 %los divisores de 6 son 6 y 12
 %¿Conocemos algún múltiplo de 6? si, 6 y 12
 
+% Ejercicio02
+% Implementa la función convexo(L1) que devuelve true si los elementos de la lista 
+% son crecientes al inicio de la lista y decrecientes en el resto de la lista.
+
+convexo([]).
+convexo([_]).
+convexo([X,Y|L]):- X < Y, convexo([Y|L]).
+convexo([X,Y|L]):- X > Y, decreciente([Y|L]).
+
+decreciente([]).
+decreciente([_]).
+decreciente([X,Y|L]):- X > Y, decreciente([Y|L]).
+
+
 %  3)   
 % Implementa la función decimal_binario(D, B) donde D es un 
 % número en base 10 y B es su representación binaria.
