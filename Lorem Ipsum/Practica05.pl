@@ -1,3 +1,26 @@
+%1.- Implementa la función combina(L1,L2) que recibe una lista L1 de números y a partir de ella construye L2, de tal manera que:
+combina([], []).
+combina([X], R) :- A = X + X, B is A, R = [B].
+combina([X|XS], [Y|YS]) 
+:- Z = X + S, 
+    suma([X|XS], S), 
+    combina_aux(XS, S, YS),
+    Y is Z.
+
+%función auxiliar que calcula la suma de los elementos de una lista.
+suma([], 0).
+suma([X|XS], R) :- Z = X + S, suma(XS, S), R is Z.
+
+%función auxiliar que recibe la suma de los elementos de la lista y calcula 
+%los elementos restantes
+combina_aux([], S, []).
+combina_aux([X], S, R) :- A = X + S, B is A, R = [B].
+combina_aux([X|XS], S, [Y|YS]) 
+:- Z = X + S, 
+    combina_aux(XS, S, YS),
+    Y is Z.
+    
+
 divide(1,n).
 divide(_,0).
 divide(2,6).
