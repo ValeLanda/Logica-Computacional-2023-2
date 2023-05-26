@@ -6,20 +6,21 @@
 */
 
 
-/*  1) Función combina que recibe  una lista L1 de numeros y a partir de ella contruye otra lista L2 tal que se  construye a partir de la suma de todos los elemntos 
-    de L1 y al resultado se le suma a cada elemnto desde el indice 0 hasta el final de la lista
+/*  1) Funcion crea una lista a partir de otra lista
+    La funcion combina recibe una lista
+    Si la lista esta vacia entonces devuelve una lista vacia
+    La lista que devuelve se construye a partir de la suma de todos los elemntos de la primer lista que se le suma a cada elemento de la primer lista
 */
-
-
-
+combina([],[]).
 combina(L1,L2) :- sum_list(L1, Suma), combina(L1, Suma, L2).
 
-/*  Función recursiva junto con su caso base la lista vacia. */
+/*  Funcion auxiliar para sumar el total a cada elemento
+    La funcion combina recibe una lista y un numero
+    Si la lista esta vacia entonces devuelve una lista vacia
+    A cada elemento de la nueva lista se le suma el numero al elemento de la lista original
+*/
 combina([], _,[]).
-
 combina([X|Xs], Suma, [Y|Ys]) :- Y is Suma + X, combina(Xs, Suma, Ys).
-
-
 
 
 /*  2) Funcion que devuelve True si los elementos de la lista son crecientes al inicio y decrecientes en el resto
@@ -33,7 +34,7 @@ convexo([]).
 convexo([_]).
 convexo([X|XS]):- last(XS, Z), mayor_lista([X|XS], A), X =\= A, Z =\= A, convexo_aux(XS, 1).
 
-/*  Funcion auxiliar ver si los elementos de la lista son crecientes al inicio y decrecientes en el resto
+/*  Funcion auxiliar para ver si los elementos de la lista son crecientes al inicio y decrecientes en el resto
     La funcion convexo_aux recibe una lista y un numero
     Si la lista esta vacia entonces devuelve True
     Si el numero es 1 entonces se compara el primer y segundo elemento de la lista, si el primero es mayor se llama a la funcion con la cola de la lista y el numero 1
@@ -73,19 +74,24 @@ decimal_binario_aux(1, "1").
 decimal_binario_aux(D, B):- X is D mod 2, Y is D // 2, decimal_binario_aux(Y, Z), number_string(X, W), string_concat(Z, W, B).
 
 
-/*  4) 
-*/
+/*  4) Ejercicio de la funcion divide*/
 
-/* Base de conocimientos */
-
+/*  Base de conocimientos */
 divide(2,6).
 diviide(2,12).
 divide(3,6).
 divide(3,12).
 
-/* Regla que genera la relacion "si un numero es divisible entre dos y entre tres, entonces es divisible entre 6 */
-
-divide(2,X) :- divide(6,X).
-divide(3,X) :- divide(6,X).
+/*  Regla que genera la relacion "si un numero es divisible entre dos y entre tres, entonces es divisible entre 6 */
 divide(6,X) :- divide(2,X), divide(3,X).
+
+/*  Preguntas
+    Usamos https://swish.swi-prolog.org/ para hacer las evaluaciones
+*/
+%¿Existe algún múltiplo de 2? si, son 6 y 12
+% debido a que divide(2, X). X = 6, X = 12
+%¿Cuales son los divisores de 6? son 2, 3 y 6
+% debido a que divide(X, 6). X = 2, X = 3, X = 6
+%¿Conocemos algun multiplo de 6? si, son 6 y 12
+% debido a que divide(6, X). X = 6, X = 12
 
