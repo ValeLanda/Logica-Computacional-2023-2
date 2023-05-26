@@ -32,8 +32,8 @@ divide(6,X):- divide(2,X), divide(3,X).
 
 decimal_binario(0,[0]).
 decimal_binario(1,[1]).
-decimal_binario(N,X):-((N mod 2) =:=1)-> (N>0, N1 is (N-1)/2 ,decimal_binario(N1,Y),concat(Y,[1],X) );
-    			((N mod 2) =:=0)->  (N>0, N1 is N/2 ,decimal_binario(N1,Y),concat(Y,[0],X)).
+decimal_binario(D,B):-((D mod 2) =:=1)-> (D>0, D1 is (D-1)/2 ,decimal_binario(D1,Y),concat(Y,[1],B) );
+    			((D mod 2) =:=0)->  (D>0, D1 is D/2 ,decimal_binario(D1,Y),concat(Y,[0],B)).
 
 %Es un predicado dado que en prolog no hay funciones 
 %por lo tanto para "pseudo "asignarle el valor a X tengo que hacer el ultimo argumento del concat sea 
