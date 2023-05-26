@@ -6,8 +6,20 @@
 */
 
 
-/*  1) Función combina que recibe lista L1 de numeros y a partir de ella contruye otra lista L2 tal que 
+/*  1) Función combina que recibe  una lista L1 de numeros y a partir de ella contruye otra lista L2 tal que se  construye a partir de la suma de todos los elemntos 
+    de L1 y al resultado se le suma a cada elemnto desde el indice 0 hasta el final de la lista
 */
+
+
+
+combina(L1,L2) :- sum_list(L1, Suma), combina(L1, Suma, L2).
+
+/*  Función recursiva junto con su caso base la lista vacia. */
+combina([], _,[]).
+
+combina([X|Xs], Suma, [Y|Ys]) :- Y is Suma + X, combina(Xs, Suma, Ys).
+
+
 
 
 /*  2) Funcion que devuelve True si los elementos de la lista son crecientes al inicio y decrecientes en el resto
@@ -73,6 +85,7 @@ divide(3,12).
 
 /* Regla que genera la relacion "si un numero es divisible entre dos y entre tres, entonces es divisible entre 6 */
 
-divide(A,B) :- B mod A =:= 0. 
 divide(2,X) :- divide(6,X).
 divide(3,X) :- divide(6,X).
+divide(6,X) :- divide(2,X), divide(3,X).
+
