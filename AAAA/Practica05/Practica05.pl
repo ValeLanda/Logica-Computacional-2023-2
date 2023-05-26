@@ -23,6 +23,14 @@ combina_aux([X|XS], N, [Y|YS]) :- combina_aux(XS, N, YS), Y is X+N.
 combina([X|XS], [Y|YS]) :- sumaLista([X|XS], N), combina_aux(XS, N, YS), Y is X+N.
 
 /*
+ * Ejercicio 3)
+ * Implementa la función decimal_binario(D, B) donde D es un numero en base 10 y B es su representacion binaria.
+ */
+decimal_binario(0,'0').
+decimal_binario(1,'1').
+decimal_binario(D, B) :- D>1, R is D mod 2, C is D//2, decimal_binario(C,B1), atom_concat(B1, R, B).
+
+/*
  * Ejercicio 4)
  * */
 % Conocimiento sobre divisibilidad. 
