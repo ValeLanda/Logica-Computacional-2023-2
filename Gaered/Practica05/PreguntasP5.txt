@@ -1,0 +1,15 @@
+- ¿Existe algún múltiplo de 2?
+
+Sí, existen varios, uno de ellos es 6, esto lo podemos comprobar colocando
+divide(2, X), obtendremos X=6, y 6 es múltiplo de 2, también 12 es múltiplo de 2.
+
+- ¿Cuáles son los divisores de 6?
+
+Los divisores de 6 son 2, 3 y 6. Esto lo podemos comprobar con la función
+findall(X, divide(X, 6), L) que da como resultado L=[2, 3, 6], pues
+busca todos los elementos que cumplan la condicion de dividir a 6.
+
+- ¿Conocemos algún múltiplo de 6?
+
+Sí, existen varios, uno de ellos es 6, esto lo podemos comprobar colocando
+divide(6, X), obtendremos X=6, y 6 es múltiplo de 6, también 12 es múltiplo de 6.
