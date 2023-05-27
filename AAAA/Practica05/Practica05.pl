@@ -23,6 +23,21 @@ combina_aux([X|XS], N, [Y|YS]) :- combina_aux(XS, N, YS), Y is X+N.
 combina([X|XS], [Y|YS]) :- sumaLista([X|XS], N), combina_aux(XS, N, YS), Y is X+N.
 
 /*
+ * Ejercicio 2)
+ * Implementa la función convexo(L1) que devuelve true si los elementos de la lista son 
+ * crecientes al inicio de la lista y decrecientes en el resto de la lista.
+ */
+convexo([_]).
+convexo([A,B|L]):- A < B, convexo([B|L]).
+convexo([A,B|L]):- A > B, auxiliarConvexo([B|L]).
+/*
+ * Función auxiliar que comprueba que los elementos de la lista vayan de forma decreciente
+ *
+ */
+auxiliarConvexo([_]).
+auxiliarConvexo([A,B|L]):- A > B, auxiliarConvexo([B|L]).
+
+/*
  * Ejercicio 3)
  * Implementa la función decimal_binario(D, B) donde D es un numero en base 10 y B es su representacion binaria.
  */
