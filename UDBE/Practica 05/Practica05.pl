@@ -15,6 +15,18 @@ combina([X|Xs],L1,[Y|Ys]):-
     combina(Xs,L1,Ys).
 
 % Ejercicio 3
+
+% Funcion Auxiliar para Convexo
+creciente([]).
+creciente([_]).
+creciente([X,Y|XS]) :- X =< Y, creciente([Y|XS]).
+
+% Funcion que devuelve true si los elementos de la listas son
+% crecientes al inicio de la lista y decrecientes en el resto
+% de la lista:
+convexo1(L1) :- creciente(L1), reverse(L1, L2), creciente(L2).
+
+
 % Funcion decimal_binario(D, B) donde D es un número en base 10 y B su representación binaria
 
 decimal_binario(0, [0]).
