@@ -19,7 +19,7 @@ divide(6,X):- divide(2,X), divide(3,X).
 
 %¿Existe algún múltiplo de 2? si 6 y 12
 %¿Cuáles son los divisores de 6? cuando (2,6),(2,12),(3,6),(3,12) por lo que
-%los divisores de 6 son 6 y 12
+%los divisores de 6 son 2,3 y 6
 %¿Conocemos algún múltiplo de 6? si, 6 y 12
 
 % Ejercicio02
