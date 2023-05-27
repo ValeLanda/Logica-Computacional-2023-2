@@ -33,4 +33,24 @@ Fib = 2
 Max = 100
 ```
 
+# Practica 05
+
+- **Nombre: Jesús Alberto Rivera Mora**
+- **Numero de Cuenta: 313208641**
+
+```powershell
+\LOG_C$ swipl
+```
+```powershell
+Welcome to SWI-Prolog ...
+...
+...
+?- consult('Practica05.pro').
+true.
+?- combina([0,3,7,5,11,2], R).
+R = [28, 31, 35, 33, 39, 30].
+....
+....
+```
+
 
